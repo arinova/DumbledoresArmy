@@ -5,9 +5,9 @@ import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 
 import store from './store'
-import Jokes from './components/Jokes'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
+import LevelContainer from './containers/LevelContainer'
 
 const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
@@ -16,7 +16,7 @@ const ExampleApp = connect(
     <div>
       <nav>
         {user ? <WhoAmI/> : <Login/>}
-      </nav> 
+      </nav>
       {children}
     </div>
 )
@@ -24,9 +24,9 @@ const ExampleApp = connect(
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={ExampleApp}>
-        <IndexRedirect to="/jokes" />
-        <Route path="/jokes" component={Jokes} />
+      <Route path="/">
+        <IndexRedirect to="/level" />
+        <Route path="/level" component={LevelContainer} />
       </Route>
     </Router>
   </Provider>,

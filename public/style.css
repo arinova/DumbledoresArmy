@@ -4,6 +4,17 @@ html{
   cursor: url('images/Harry Potter Cursor Normal Wand.cur'), pointer;
 }
 
+nav {
+  background-color: black;
+  text-align: right;
+}
+
+.whoami-user-name {
+  margin-right: 5px;
+  color: white;
+  font-weight:600;
+}
+
 .level {
   color: white;
   margin: auto;

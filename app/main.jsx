@@ -9,7 +9,7 @@ import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import LevelContainer from './containers/LevelContainer'
 
-const ExampleApp = connect(
+const Navigation = connect(
   ({ auth }) => ({ user: auth })
 ) (
   ({ user, children }) =>
@@ -24,7 +24,7 @@ const ExampleApp = connect(
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/">
+      <Route path="/" component={Navigation}>
         <IndexRedirect to="/level" />
         <Route path="/level" component={LevelContainer} />
       </Route>

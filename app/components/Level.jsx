@@ -8,6 +8,7 @@ export default props => {
   return (
     <div className="level">
       <h1>Level {level}</h1>
+      <div className="levelStage"></div>
       <p>{instructions}</p>
     </div>
   )

@@ -1,13 +1,27 @@
-body{
+html{
   background-image:url('images/fog.jpg');
   background-size: cover;
-
+  cursor: url('images/Harry Potter Cursor Normal Wand.cur'), pointer;
 }
 
 .level {
   color: white;
+  margin: auto;
+  text-align: center;
+}
+
+.levelStage{
+  border: 2px solid lightgray;
+  width: 800px;
+  height: 500px;
+  margin:auto;
 }
 
 .level h1 {
   font-size: 3em;
+}
+
+.level p {
+  font-size: 1.5em;
+  font-weight: 500;
 }

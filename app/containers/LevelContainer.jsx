@@ -1,27 +1,28 @@
 import React, {Component} from 'react';
 import Level from 'APP/app/components/Level';
 
-
-
-
+/*TEMPORARY DUMMY DATA*/
+let dummy={
+  level: 1,
+  instructions:"It's dark in here.",
+  affirmation: "That's better."
+}
 
 export default class LevelContainer extends Component {
 
   constructor() {
     super();
     this.state= {
-      level: 1,
-      instructions:"It's dark in here.",
-      affirmation: "That's better."
+      currLevel: dummy
     }
   }
 
   render() {
     return (
       <Level
-        level={this.state.level}
-        instructions={this.state.instructions}
-        affirmation={this.state.affirmation}
+        level={this.state.currLevel.level}
+        instructions={this.state.currLevel.instructions}
+        affirmation={this.state.currLevel.affirmation}
       />
     )
   }

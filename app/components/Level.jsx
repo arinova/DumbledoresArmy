@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default props => {
 
@@ -25,7 +26,7 @@ export default props => {
 
 
       </div>
-      <p>{!completed ? instructions : affirmation}</p>
+      {!completed ? <p>{instructions}</p> : <div><p>{affirmation}</p><p><Link to={`/level/${level+1}`}>Next Level</Link></p></div>}
     </div>
   )
 }

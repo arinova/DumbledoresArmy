@@ -1,5 +1,6 @@
 if (annyang) {
   // Let's define a command.
+  console.log("we have annyang")
   var commands = {
     'hello': function() { alert('Hello world!'); },
     'alohomora': function() { alert('open!'); },

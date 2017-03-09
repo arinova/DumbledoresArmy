@@ -6,7 +6,7 @@ export default props => {
   let instructions=props.instructions
 
   return (
-    <div>
+    <div className="level">
       <h1>Level {level}</h1>
       <p>{instructions}</p>
     </div>

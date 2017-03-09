@@ -1,0 +1,13 @@
+body{
+  background-image:url('images/fog.jpg');
+  background-size: cover;
+
+}
+
+.level {
+  color: white;
+}
+
+.level h1 {
+  font-size: 3em;
+}

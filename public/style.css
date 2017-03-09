@@ -36,3 +36,21 @@ nav {
   font-size: 1.5em;
   font-weight: 500;
 }
+
+
+/*SPECIFIC LEVELS*/
+/*LUMOS*/
+.dark{
+  background-color: black;
+  width:100%;
+  height: 100%;
+}
+
+.light{
+  background-image: url("images/lumos.jpg");
+  background-size: cover;
+  width:100%;
+  height: 100%;
+}
+
+/*SPECIFIC LEVELS END*/

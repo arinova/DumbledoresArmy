@@ -2,11 +2,12 @@ if (annyang) {
   // Let's define a command.
   console.log("we have annyang")
   var commands = {
-    'hello': function() { alert('Hello world!'); },
+    'lumos': function() { alert('Let there be light!'); },
     'alohomora': function() { alert('open!'); },
     'stupefy': function() { alert('freeze!'); },
     'expelliarmus': function() { alert('foosh'); },
-    'red': function() { alert('red!'); }
+    'Wingardium Leviosa': function() { alert('It’s Wing-gar-dium Levi-o-sa! Not Levio-sa'); },
+    'red': function() { alert('blue'); }
   };
 
   // Add our commands to annyang

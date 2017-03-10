@@ -25,8 +25,8 @@ render (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Navigation}>
-        <IndexRedirect to="/level/1" />
-        <Route path="/level/:num" component={LevelContainer} />
+        <IndexRedirect to="/level" />
+        <Route path="/level" component={LevelContainer} />
       </Route>
     </Router>
   </Provider>,

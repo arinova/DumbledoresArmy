@@ -7,26 +7,30 @@ export default props => {
   let instructions=props.instructions
   let affirmation=props.affirmation
   let stage=props.stage
-  let completed=true
+  let completed=props.completed
 
   return (
-    <div className="level">
-      <h1>Level {level}</h1>
-      <div className="levelStage">
+    <div>
 
-        {!completed ?
-          <div className="dark">
+      <div className="level">
+          <h1>Level {level}</h1>
+          <div className="levelStage">
 
-          </div> :
-          <div className="light">
+            {!completed ?
+              <div className="dark">
 
-          </div> }
+              </div> :
+              <div className="light">
 
-
-
-
-      </div>
-      {!completed ? <p>{instructions}</p> : <div><p>{affirmation}</p><p><Link to={`/level/${level+1}`}>Next Level</Link></p></div>}
+              </div>
+            }
+          </div>
+          {!completed ? <p>{instructions}</p> :
+            <div><p>{affirmation}</p><p><Link to={`/level/${level+1}`}>Next Level</Link></p></div>
+          }
+        </div>
     </div>
+
+
   )
 }

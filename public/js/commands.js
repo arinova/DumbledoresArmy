@@ -1,12 +1,10 @@
-if (annyang) {
-  // Let's define a command.
-  console.log("we have annyang")
+function getAnnyang(){
+  console.log("we have annyang", annyang)
   var commands = {
-    'lumos': function() { alert('Let there be light!'); },
     'alohomora': function() { alert('open!'); },
     'stupefy': function() { alert('freeze!'); },
     'expelliarmus': function() { alert('foosh'); },
-    'Wingardium Leviosa': function() { alert('It’s Wing-gar-dium Levi-o-sa! Not Levio-sa'); },
+    'expecto patronum': function() { alert('patronus'); },
     'red': function() { alert('blue'); }
   };
 
@@ -24,9 +22,10 @@ if (annyang) {
 
   // Render KITT's interface
   SpeechKITT.vroom();
+  return annyang;
 }
 
 annyang.addCallback('result', function(phrases) {
-  console.log("I think the user said: ", phrases[0]);
+  console.log("I think the user said::: ", phrases[0]);
   console.log("But then again, it could be any of the following: ", phrases);
 });

@@ -35,13 +35,6 @@ a {
   text-shadow: 0px 0px 10px rgba(255,255,255,0.6), 0px 0px 30px rgba(255,255,255,0.4), 0px 0px 50px rgba(255,255,255,0.3), 0px 0px 180px rgba(255,255,255,0.3);
 }
 
-.levelStage{
-  border: 2px solid lightgray;
-  width: 800px;
-  height: 500px;
-  margin:auto;
-}
-
 .level h1 {
   font-size: 3em;
   font-family: ParryHotter;
@@ -58,20 +51,38 @@ a {
   font-weight: 500;
 }
 
+/*.levelStage{
+  border: 2px solid lightgray;
+  width: 800px;
+  height: 500px;
+  margin:auto;
+}*/
 
-/*SPECIFIC LEVELS*/
-/*LUMOS*/
-.dark{
+.preStage{
   background-color: black;
-  width:100%;
-  height: 100%;
+  border: 2px solid lightgray;
+  width: 800px;
+  height: 500px;
+  margin:auto;
 }
 
-.light{
+.postStage{
+  background-color: white;
+  border: 2px solid lightgray;
+  width: 800px;
+  height: 500px;
+  margin:auto;
+}
+
+/*Specific levels*/
+.preStage.lumos{
+
+}
+.postStage.lumos{
   background-image: url("images/lumos.jpg");
   background-size: cover;
-  width:100%;
-  height: 100%;
 }
+
+
 
 /*SPECIFIC LEVELS END*/

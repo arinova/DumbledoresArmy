@@ -1,23 +1,16 @@
 import React, {Component} from 'react';
 import Level from 'APP/app/components/Level';
 import Annyang from 'APP/public/js/annyang.js';
-
-/*TEMPORARY DUMMY DATA*/
-let dummy={
-  level: 1,
-  instructions:"It's dark in here.",
-  affirmation: "That's better.",
-  spell: 'lumos',
-  preStage: ()=>{return <div className="dark"></div>},
-  postStage: ()=>{return <div className="light"></div>}
-}
+import LevelList from 'APP/public/js/levellist.js';
 
 export default class LevelContainer extends Component {
 
   constructor() {
     super();
+    let levelList= getLevels();
+    console.log("levellist", levelList);
     this.state= {
-      currLevel: dummy,
+      currLevel: levelList[0],
       completed: false,
       feedback: ""
     }
@@ -44,11 +37,10 @@ export default class LevelContainer extends Component {
       <div>
         <Level
           level={this.state.currLevel.level}
+          label={this.state.currLevel.label}
           instructions={this.state.currLevel.instructions}
           affirmation={this.state.currLevel.affirmation}
           completed={this.state.completed}
-          preStage={this.state.currLevel.preStage}
-          postStage={this.state.currLevel.postStage}
         />
 
       {!this.state.completed ? <p className="level">You: {this.state.feedback} ...</p> : null}

@@ -6,7 +6,8 @@ import Annyang from 'APP/public/js/annyang.js';
 let dummy={
   level: 1,
   instructions:"It's dark in here.",
-  affirmation: "That's better."
+  affirmation: "That's better.",
+  spell: 'lumos'
 }
 
 export default class LevelContainer extends Component {
@@ -15,28 +16,39 @@ export default class LevelContainer extends Component {
     super();
     this.state= {
       currLevel: dummy,
-      completed: false
+      completed: false,
+      feedback: ""
     }
   }
 
   componentDidMount(){
     let annyang=getAnnyang();
-    console.log("annyang", annyang)
-    let command={'lumos': function() {
-      this.setState({completed : true})
-      console.log('Let there be light!!');
-    }.bind(this)}
-    annyang.addCommands(command);
+    let thisLevel= this;
+
+    annyang.addCallback('result', function(phrases) {
+      thisLevel.setState({feedback : phrases[0]});
+      let spell=thisLevel.state.currLevel.spell;
+
+      console.log("spell:", spell)
+      console.log("you said:", phrases[0]);
+
+      if(phrases[0].includes(spell)){ thisLevel.setState({completed : true}); }
+      console.log("completed", thisLevel.state.completed);
+    }.bind(thisLevel));
   }
 
   render() {
     return (
-      <Level
-        level={this.state.currLevel.level}
-        instructions={this.state.currLevel.instructions}
-        affirmation={this.state.currLevel.affirmation}
-        completed={this.state.completed}
-      />
+      <div>
+        <Level
+          level={this.state.currLevel.level}
+          instructions={this.state.currLevel.instructions}
+          affirmation={this.state.currLevel.affirmation}
+          completed={this.state.completed}
+        />
+
+      {!this.state.completed ? <p className="level">You: {this.state.feedback} ...</p> : null}
+      </div>
     )
   }
 }

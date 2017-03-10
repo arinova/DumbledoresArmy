@@ -8,7 +8,6 @@ export default props => {
   let affirmation=props.affirmation
   let stage=props.stage
   let completed=props.completed
-  completed=true
 
   return (
     <div>

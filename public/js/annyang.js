@@ -25,7 +25,7 @@ function getAnnyang(){
   return annyang;
 }
 
-annyang.addCallback('result', function(phrases) {
-  console.log("I think the user said::: ", phrases[0]);
-  console.log("But then again, it could be any of the following: ", phrases);
-});
+// annyang.addCallback('result', function(phrases) {
+//   console.log("I think the user said::: ", phrases[0]);
+//   console.log("But then again, it could be any of the following: ", phrases);
+// });

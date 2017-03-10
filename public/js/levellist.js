@@ -13,6 +13,27 @@ function getLevels(){
       affirmation: "Let's Go!",
       spell: 'alohomora',
       label: 'alohomora'
+    },
+    {
+      level: 3,
+      instructions:"Freeze them!",
+      affirmation: "Phew~",
+      spell: 'stupefy',
+      label: 'stupefy'
+    },
+    {
+      level: 4,
+      instructions:"Disarm them!",
+      affirmation: "Nice!",
+      spell: 'expelliarmus',
+      label: 'expelliarmus'
+    },
+    {
+      level: 5,
+      instructions:"Think of your happiest memory!",
+      affirmation: "Cool patronus!",
+      spell: 'expecto patronum',
+      label: 'patronus'
     }
   ];
 }

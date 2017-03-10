@@ -3,6 +3,7 @@ import React from 'react'
 import {Router, Route, IndexRedirect, browserHistory} from 'react-router'
 import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
+import { selectLevel } from 'APP/app/reducers/level';
 
 import store from './store'
 import Login from './components/Login'
@@ -21,12 +22,20 @@ const Navigation = connect(
     </div>
 )
 
+
+export const onLevelEnter = nextState => {
+  console.log("params",nextState.params.num)
+  store.dispatch(selectLevel(nextState.params.num));
+};
+
+
+
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Navigation}>
-        <IndexRedirect to="/level" />
-        <Route path="/level" component={LevelContainer} />
+        <IndexRedirect to="/level/1" />
+        <Route path="/level/:num" component={LevelContainer} onEnter={onLevelEnter} />
       </Route>
     </Router>
   </Provider>,

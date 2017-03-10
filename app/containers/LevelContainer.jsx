@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Level from 'APP/app/components/Level';
-import Annyang from 'APP/public/js/commands.js';
+import Annyang from 'APP/public/js/annyang.js';
 
 /*TEMPORARY DUMMY DATA*/
 let dummy={
@@ -24,7 +24,7 @@ export default class LevelContainer extends Component {
     console.log("annyang", annyang)
     let command={'lumos': function() {
       this.setState({completed : true})
-      console.log('Let there be light!!!!!');
+      console.log('Let there be light!!');
     }.bind(this)}
     annyang.addCommands(command);
   }

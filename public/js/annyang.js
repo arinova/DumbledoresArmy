@@ -5,7 +5,7 @@ function getAnnyang(){
     'stupefy': function() { alert('freeze!'); },
     'expelliarmus': function() { alert('foosh'); },
     'expecto patronum': function() { alert('patronus'); },
-    'red': function() { alert('blue'); }
+    'red': function() { alert('red'); }
   };
 
   // Add our commands to annyang

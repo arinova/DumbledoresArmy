@@ -7,7 +7,9 @@ let dummy={
   level: 1,
   instructions:"It's dark in here.",
   affirmation: "That's better.",
-  spell: 'lumos'
+  spell: 'lumos',
+  preStage: ()=>{return <div className="dark"></div>},
+  postStage: ()=>{return <div className="light"></div>}
 }
 
 export default class LevelContainer extends Component {
@@ -45,6 +47,8 @@ export default class LevelContainer extends Component {
           instructions={this.state.currLevel.instructions}
           affirmation={this.state.currLevel.affirmation}
           completed={this.state.completed}
+          preStage={this.state.currLevel.preStage}
+          postStage={this.state.currLevel.postStage}
         />
 
       {!this.state.completed ? <p className="level">You: {this.state.feedback} ...</p> : null}

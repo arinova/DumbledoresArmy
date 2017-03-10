@@ -6,7 +6,8 @@ export default props => {
   let level=props.level
   let instructions=props.instructions
   let affirmation=props.affirmation
-  let stage=props.stage
+  let preStage= props.preStage
+  let postStage= props.postStage
   let completed=props.completed
 
   return (
@@ -17,12 +18,8 @@ export default props => {
           <div className="levelStage">
 
             {!completed ?
-              <div className="dark">
-
-              </div> :
-              <div className="light">
-
-              </div>
+              preStage() :
+              postStage()
             }
           </div>
           {!completed ? <p>{instructions}</p> :

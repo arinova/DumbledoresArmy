@@ -8,12 +8,13 @@ export default props => {
   let affirmation=props.affirmation
   let stage=props.stage
   let completed=props.completed
+  completed=true
 
   return (
     <div>
 
       <div className="level">
-          <h1>Level {level}</h1>
+          <h1>Level <span id="levelNum">{level}</span></h1>
           <div className="levelStage">
 
             {!completed ?

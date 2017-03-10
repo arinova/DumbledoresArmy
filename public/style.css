@@ -4,23 +4,35 @@ html{
   cursor: url('images/Harry Potter Cursor Normal Wand.cur'), pointer;
 }
 
+/*Harry Potter Font*/
+@font-face {
+    font-family: ParryHotter;
+    src: url('fonts/ParryHotter.ttf');
+}
+
 nav {
-  background-color: black;
   text-align: right;
 }
 
 .whoami-user-name {
   margin-right: 5px;
-  color: white;
+  color:white;
   font-weight:600;
 }
 
-
+/* light it up text-shadow*/
+/* text-shadow: 0px 0px 10px rgba(255,255,255,0.6), 0px 0px 30px rgba(255,255,255,0.4), 0px 0px 50px rgba(255,255,255,0.3), 0px 0px 180px rgba(255,255,255,0.3);
+*/
+a {
+  color: steelblue;
+  text-shadow: 0px 0px 10px rgba(255,255,255,0.6), 0px 0px 30px rgba(255,255,255,0.4), 0px 0px 50px rgba(255,255,255,0.3), 0px 0px 180px rgba(255,255,255,0.3);
+}
 
 .level {
   color: white;
   margin: auto;
   text-align: center;
+  text-shadow: 0px 0px 10px rgba(255,255,255,0.6), 0px 0px 30px rgba(255,255,255,0.4), 0px 0px 50px rgba(255,255,255,0.3), 0px 0px 180px rgba(255,255,255,0.3);
 }
 
 .levelStage{
@@ -32,6 +44,13 @@ nav {
 
 .level h1 {
   font-size: 3em;
+  font-family: ParryHotter;
+  margin-top: -25px;
+  margin-bottom: -25px;
+}
+
+#levelNum{
+  font-size: 1.5em;
 }
 
 .level p {

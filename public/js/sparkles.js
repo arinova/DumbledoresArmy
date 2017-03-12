@@ -1,4 +1,4 @@
-<![CDATA[
+// <![CDATA[
 var colour="#FFFFFF";
 var sparkles=120;
 
@@ -166,4 +166,4 @@ function createDiv(height, width) {
   div.style.backgroundColor=colour;
   return (div);
 }
-]]>
+// ]]>

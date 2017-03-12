@@ -30,7 +30,7 @@ export  class LevelContainer extends Component {
       console.log("spell:", spell)
       console.log("you said:", phrases[0]);
 
-      if(phrases[0].toLowerCase().includes(spell)){ this.props.toggleCompleted(true) }
+      if(phrases[0].toLowerCase().includes(spell) || phrases.indexOf(spell)>-1){ this.props.toggleCompleted(true) }
       console.log("completed", this.props.level.completed);
     }.bind(thisLevel));
   }

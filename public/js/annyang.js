@@ -1,7 +1,8 @@
 function getAnnyang(){
   console.log("we have annyang", annyang)
   var commands = {
-    'hello': function() { console.log("Hello There!"); }
+    'hello': function() { console.log("Hello There!"); },
+    'stupefy':function() {  }
   };
 
   // Add our commands to annyang

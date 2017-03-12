@@ -2,6 +2,7 @@ html{
   background-image:url('images/fog.jpg');
   background-size: cover;
   cursor: url('images/Harry Potter Cursor Normal Wand.cur'), pointer;
+  color:white;
 }
 
 /*Harry Potter Font*/
@@ -21,13 +22,64 @@ nav {
 }
 
 .ravenclaw{
-  width:150px;
-  height:200px;
+  width:100px;
+  height:120px;
   background-image: url('images/ravenclawEmblem.png');
   background-size:cover;
   float:left;
 }
 
+.ravenclaw{
+  width:100px;
+  height:120px;
+  background-image: url('images/ravenclawEmblem.png');
+  background-size:cover;
+  float:left;
+}
+.hufflepuff{
+  width:100px;
+  height:120px;
+  background-image: url('images/hufflepuffEmblem.png');
+  background-size:cover;
+  float:left;
+}
+.gryffindor{
+  width:100px;
+  height:120px;
+  background-image: url('images/gryffindorEmblem.png');
+  background-size:cover;
+  float:left;
+}
+.slytherin{
+  width:100px;
+  height:120px;
+  background-image: url('images/slytherinEmblem.png');
+  background-size:cover;
+  float:left;
+}
+
+.home h2{
+  text-align: center;
+  font-size: 2em;
+}
+
+.playButton{
+  color: white;
+  text-decoration: none;
+  padding:5px;
+  border: 2px solid white;
+}
+
+.flexContainer{
+  display:flex;
+  flex-flow: row;
+  align-items: stretch;
+}
+
+.flexItem{
+  margin:auto;
+  font-size: 3em;
+}
 
 /* light it up text-shadow*/
 /* text-shadow: 0px 0px 10px rgba(255,255,255,0.6), 0px 0px 30px rgba(255,255,255,0.4), 0px 0px 50px rgba(255,255,255,0.3), 0px 0px 180px rgba(255,255,255,0.3);
@@ -73,6 +125,8 @@ a {
   width: 800px;
   height: 500px;
   margin:auto;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .postStage{
@@ -81,6 +135,12 @@ a {
   width: 800px;
   height: 500px;
   margin:auto;
+
+  -webkit-transition: background 1.5s ease;
+  -moz-transition: background 1.5s ease;
+  -o-transition: background 1.5s ease;
+  -ms-transition: background 1.5s ease;
+  transition: background 1.5s ease;
 }
 
 /*Specific levels*/
@@ -92,6 +152,34 @@ a {
   background-size: cover;
 }
 
+.preStage.alohomora{
+  background-image: url("images/lumos.jpg");
+  background-size: cover;
+}
+.postStage.alohomora{
+  background-image: url("images/lumos.jpg");
+  background-size: cover;
+}
+
+
+.preStage.expelliarmus{
+  background-image: url("images/malfoywand.jpg");
+  background-size: cover;
+}
+.postStage.expelliarmus{
+  background-image: url("images/malfoyscared.jpg");
+  background-size: cover;
+}
+
+.preStage.patronus{
+  background-image: url("images/dementor.jpg");
+  background-size:contain;
+
+}
+.postStage.patronus{
+  background-image: url("images/patronus-wolf.jpg");
+  background-size: cover;
+}
 
 
 /*SPECIFIC LEVELS END*/

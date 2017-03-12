@@ -8,6 +8,7 @@ import { selectLevel } from 'APP/app/reducers/level';
 import store from './store'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
+import Home from './components/Home'
 import LevelContainer from './containers/LevelContainer'
 
 const Navigation = connect(
@@ -15,7 +16,6 @@ const Navigation = connect(
 ) (
   ({ user, children }) =>
     <div>
-      {user ? <div className="ravenclaw"><h2>House: {user.house_id}</h2></div> : null}
       <nav>
         {user ? <WhoAmI/> : <Login/>}
       </nav>
@@ -35,7 +35,8 @@ render (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Navigation}>
-        <IndexRedirect to="/level/1" />
+        <IndexRedirect to="/home" />
+          <Route path="/home" component={Home}/>
         <Route path="/level/:num" component={LevelContainer} onEnter={onLevelEnter} />
       </Route>
     </Router>

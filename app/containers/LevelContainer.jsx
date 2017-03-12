@@ -1,42 +1,74 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+
 import Level from 'APP/app/components/Level';
-import Annyang from 'APP/public/js/commands.js';
+import Annyang from 'APP/public/js/annyang.js';
+import LevelList from 'APP/public/js/levellist.js';
+import { selectLevel, toggleCompleted } from 'APP/app/reducers/level';
 
-/*TEMPORARY DUMMY DATA*/
-let dummy={
-  level: 1,
-  instructions:"It's dark in here.",
-  affirmation: "That's better."
-}
+export  class LevelContainer extends Component {
 
-export default class LevelContainer extends Component {
+  constructor(props) {
+    super(props);
+    console.log("going to level", this.props.level);
 
-  constructor() {
-    super();
     this.state= {
-      currLevel: dummy,
-      completed: false
+      levelList: getLevels(),
+      feedback: ""
     }
   }
 
   componentDidMount(){
     let annyang=getAnnyang();
-    console.log("annyang", annyang)
-    let command={'lumos': function() {
-      this.setState({completed : true})
-      console.log('Let there be light!!!!!');
-    }.bind(this)}
-    annyang.addCommands(command);
+    let thisLevel= this;
+
+    annyang.addCallback('result', function(phrases) {
+      thisLevel.setState({feedback : phrases[0]});
+      let currLevel= this.state.levelList[this.props.level.level-1];
+      let spell=currLevel.spell;
+
+      console.log("spell:", spell)
+      console.log("you said:", phrases[0]);
+
+      if(phrases[0].toLowerCase().includes(spell)){ this.props.toggleCompleted(true) }
+      console.log("completed", this.props.level.completed);
+    }.bind(thisLevel));
   }
 
   render() {
+    let currLevel= this.state.levelList[this.props.level.level-1];
+    let completed= this.props.level.completed;
     return (
-      <Level
-        level={this.state.currLevel.level}
-        instructions={this.state.currLevel.instructions}
-        affirmation={this.state.currLevel.affirmation}
-        completed={this.state.completed}
-      />
+      <div>
+        <Level
+          level={currLevel.level}
+          label={currLevel.label}
+          instructions={currLevel.instructions}
+          affirmation={currLevel.affirmation}
+          completed={completed}
+        />
+
+      {!this.state.completed ? <p className="level">You: {this.state.feedback} ...</p> : null}
+      </div>
     )
   }
 }
+
+export const mapStateToProps = state => {
+  return {
+    level:state.level
+  };
+};
+
+export const mapDispatchToProps = dispatch=>{
+   return {
+     toggleCompleted: function(boolean){
+       dispatch(toggleCompleted(boolean));
+     },
+     selectLevel: function(level){
+       dispatch(selectLevel(level));
+     }
+   };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LevelContainer);

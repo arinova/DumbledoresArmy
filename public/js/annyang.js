@@ -1,11 +1,7 @@
 function getAnnyang(){
   console.log("we have annyang", annyang)
   var commands = {
-    'alohomora': function() { alert('open!'); },
-    'stupefy': function() { alert('freeze!'); },
-    'expelliarmus': function() { alert('foosh'); },
-    'expecto patronum': function() { alert('patronus'); },
-    'red': function() { alert('blue'); }
+    'hello': function() { console.log("Hello There!"); }
   };
 
   // Add our commands to annyang
@@ -25,7 +21,7 @@ function getAnnyang(){
   return annyang;
 }
 
-annyang.addCallback('result', function(phrases) {
-  console.log("I think the user said::: ", phrases[0]);
-  console.log("But then again, it could be any of the following: ", phrases);
-});
+// annyang.addCallback('result', function(phrases) {
+//   console.log("I think the user said::: ", phrases[0]);
+//   console.log("But then again, it could be any of the following: ", phrases);
+// });

@@ -6,7 +6,9 @@
 
 const User = require('./user')
 const OAuth = require('./oauth')
+const House = require('./house')
 
+User.belongsTo(House)
 OAuth.belongsTo(User)
 User.hasOne(OAuth)
 module.exports = {User}

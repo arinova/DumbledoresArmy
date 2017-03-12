@@ -28,12 +28,5 @@ function getLevels(){
       spell: 'expecto patronum',
       label: 'patronus'
     },
-    {
-      level: 5,
-      instructions:"Freeze them!",
-      affirmation: "Phew~",
-      spell: 'stupefy',
-      label: 'stupefy'
-    },
   ];
 }

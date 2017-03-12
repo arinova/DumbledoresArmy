@@ -8,6 +8,13 @@ export default props => {
   let affirmation=props.affirmation
   let label=props.label
   let completed=props.completed
+  let levelTotal=props.levelTotal
+  let nextLevel;
+  if(level+1 === levelTotal){
+    nextLevel= '/end'
+  }else{
+    nextLevel=`/level/${level+1}`
+  }
 
   return (
     <div>
@@ -22,7 +29,8 @@ export default props => {
             }
           </div>
           {!completed ? <p>{instructions}</p> :
-            <div><p>{affirmation}</p><p><Link to={`/level/${level+1}`}>Next Level</Link></p></div>
+            <div><p>{affirmation}</p><p>
+              <Link to={nextLevel}>Next Level</Link></p></div>
           }
         </div>
     </div>

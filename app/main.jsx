@@ -9,6 +9,7 @@ import store from './store'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import Home from './components/Home'
+import End from './components/End'
 import LevelContainer from './containers/LevelContainer'
 
 const Navigation = connect(
@@ -29,15 +30,14 @@ export const onLevelEnter = nextState => {
   store.dispatch(selectLevel(nextState.params.num));
 };
 
-
-
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Navigation}>
         <IndexRedirect to="/home" />
           <Route path="/home" component={Home}/>
-        <Route path="/level/:num" component={LevelContainer} onEnter={onLevelEnter} />
+          <Route path="/end" component={End}/>
+          <Route path="/level/:num" component={LevelContainer} onEnter={onLevelEnter} />
       </Route>
     </Router>
   </Provider>,

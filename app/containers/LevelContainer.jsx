@@ -45,6 +45,7 @@ export  class LevelContainer extends Component {
           label={currLevel.label}
           instructions={currLevel.instructions}
           affirmation={currLevel.affirmation}
+          levelTotal={this.state.levelList.length}
           completed={completed}
         />
 
@@ -56,7 +57,8 @@ export  class LevelContainer extends Component {
 
 export const mapStateToProps = state => {
   return {
-    level:state.level
+    level: state.level,
+    user: state.auth
   };
 };
 

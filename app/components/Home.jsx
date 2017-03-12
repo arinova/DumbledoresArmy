@@ -7,10 +7,10 @@ export class Home extends Component {
     super()
     this.state={
       houses:{
-        gryffindor: {points: 1},
-        hufflepuff: {points: 1},
-        ravenclaw: {points: 1},
-        slytherin: {points: 1},
+        gryffindor: {points: 5000},
+        hufflepuff: {points: 300},
+        ravenclaw: {points: 250},
+        slytherin: {points: 200},
       }
     }
   }
@@ -27,12 +27,13 @@ export class Home extends Component {
 
   render (){
     let guest= "wizard/witch"
-    console.log("userrrr::", this.props.user);
     return (
       <div className="home">
-        {this.props.user ? <div className={getHouse(this.props.user.house_id)}></div> : null}
+        <div className="greetings">
+          {this.props.user ? <div className={this.getHouse(this.props.user.house_id)}></div> : <div className="hogwarts"></div>}
         <h1>Welcome, {this.props.user? this.props.user.name : guest}!</h1>
         {this.props.user? <h3>Points: {this.props.user.points}</h3> : <h3>Sign in to win points for your house!</h3>}
+      </div>
         <h2><Link to="level/1" className="playButton">Win Points</Link></h2>
         <div>
           <h2>House Cup Stats:</h2>

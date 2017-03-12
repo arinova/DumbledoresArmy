@@ -10,7 +10,7 @@ export default props => {
   let completed=props.completed
   let levelTotal=props.levelTotal
   let nextLevel;
-  if(level+1 === levelTotal){
+  if(level+1 > levelTotal){
     nextLevel= '/end'
   }else{
     nextLevel=`/level/${level+1}`

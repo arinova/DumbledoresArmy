@@ -153,11 +153,11 @@ a {
 }
 
 .preStage.alohomora{
-  background-image: url("images/lumos.jpg");
+  background-image: url("images/closeddoor.jpg");
   background-size: cover;
 }
 .postStage.alohomora{
-  background-image: url("images/lumos.jpg");
+  background-image: url("images/dooropen.jpg");
   background-size: cover;
 }
 
@@ -173,7 +173,7 @@ a {
 
 .preStage.patronus{
   background-image: url("images/dementor.jpg");
-  background-size:contain;
+  background-size:cover;
 
 }
 .postStage.patronus{

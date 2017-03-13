@@ -1,18 +1,68 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
+import axios from 'axios';
 
 export class Home extends Component {
   constructor(){
     super()
     this.state={
-      houses:{
         gryffindor: {points: 5000},
         hufflepuff: {points: 300},
         ravenclaw: {points: 250},
         slytherin: {points: 200},
-      }
     }
+  }
+
+  componentDidMount(){
+    axios.get('/api/houses/1')
+      .then(res => {
+        console.log("res", res.data);
+        return res.data
+      })
+      .then(gryffindors =>{
+        let points= gryffindors.reduce((acc, curr)=>{
+          return acc +  curr.points
+        }, 0)
+        this.setState({gryffindor :{points : points}})
+      }).catch(console.error)
+
+      axios.get('/api/houses/2')
+        .then(res => {
+          console.log("res", res.data);
+          return res.data
+        })
+        .then(hufflepuffs =>{
+          let points= hufflepuffs.reduce((acc, curr)=>{
+            return acc +  curr.points
+          }, 0)
+          this.setState({hufflepuff :{points : points}})
+        }).catch(console.error)
+
+        axios.get('/api/houses/3')
+          .then(res => {
+            console.log("res", res.data);
+            return res.data
+          })
+          .then(ravenclaws =>{
+            let points= ravenclaws.reduce((acc, curr)=>{
+              return acc +  curr.points
+            }, 0)
+            this.setState({ravenclaw :{points : points}})
+          }).catch(console.error)
+
+        axios.get('/api/houses/4')
+          .then(res => {
+            console.log("res", res.data);
+            return res.data
+          })
+          .then(slytherins =>{
+            let points= slytherins.reduce((acc, curr)=>{
+            return acc +  curr.points
+            }, 0)
+            this.setState({slytherin :{points : points}})
+          }).catch(console.error)
+
   }
 
   getHouse(num){
@@ -38,16 +88,16 @@ export class Home extends Component {
         <div>
           <h2>House Cup Stats:</h2>
           <div className="flexContainer">
-            <div className="flexItem gryffindor"></div><div className="flexItem">{this.state.houses.gryffindor.points}</div>
+            <div className="flexItem gryffindor"></div><div className="flexItem">{this.state.gryffindor.points}</div>
           </div>
           <div className="flexContainer">
-            <div className="flexItem hufflepuff"></div><div className="flexItem">{this.state.houses.hufflepuff.points}</div>
+            <div className="flexItem hufflepuff"></div><div className="flexItem">{this.state.hufflepuff.points}</div>
           </div>
           <div className="flexContainer">
-            <div className="flexItem ravenclaw"></div><div className="flexItem">{this.state.houses.ravenclaw.points}</div>
+            <div className="flexItem ravenclaw"></div><div className="flexItem">{this.state.ravenclaw.points}</div>
           </div>
           <div className="flexContainer">
-            <div className="flexItem slytherin"></div><div className="flexItem">{this.state.houses.slytherin.points}</div>
+            <div className="flexItem slytherin"></div><div className="flexItem">{this.state.slytherin.points}</div>
           </div>
         </div>
       </div>

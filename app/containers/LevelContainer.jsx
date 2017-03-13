@@ -24,18 +24,19 @@ export  class LevelContainer extends Component {
     let thisLevel= this;
 
     annyang.addCallback('result', function(phrases) {
-      thisLevel.setState({feedback : phrases[0]});
+      let feedback=phrases[0];
+      thisLevel.setState({feedback : feedback});
       let currLevel= this.state.levelList[this.props.level.level-1];
       let spell=currLevel.spell;
 
       console.log("spell:", spell)
       console.log("you said:", phrases[0]);
 
-      if(phrases[0].toLowerCase().includes(spell) || phrases.indexOf(spell)>-1){
+      if(phrases[0].toLowerCase().includes(spell)){
         this.props.toggleCompleted(true)
         if(this.props.user){this.props.addPoints(this.props.user, 10);}
       }
-      console.log("completed", this.props.level.completed);
+
     }.bind(thisLevel));
   }
 

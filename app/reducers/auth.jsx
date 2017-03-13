@@ -4,9 +4,29 @@ const reducer = (state=null, action) => {
   switch(action.type) {
   case AUTHENTICATED:
     return action.user
+  case ADD_POINTS_TO_USER:
+    return action.user
   }
   return state
 }
+
+const ADD_POINTS_TO_USER = 'ADD_POINTS_TO_USER'
+export const addPointsToUser = user => ({
+  type: ADD_POINTS_TO_USER, user
+})
+
+export const addPoints = (user, points) =>
+  dispatch =>
+    axios.post(`/api/users/${user.id}`,
+      {addPoints: points})
+      .then((user) => {
+        console.log("before dipatch", user)
+        dispatch(addPointsToUser(user.data))
+      })
+      .catch(console.error)
+
+
+
 
 const AUTHENTICATED = 'AUTHENTICATED'
 export const authenticated = user => ({

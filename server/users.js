@@ -6,7 +6,7 @@ const User = db.model('users')
 const {mustBeLoggedIn, forbidden,} = require('./auth.filters')
 
 module.exports = require('express').Router()
-	.get('/', forbidden('only admins can list users'), (req, res, next) => 
+	.get('/', forbidden('only admins can list users'), (req, res, next) =>
 		User.findAll()
 		.then(users => res.json(users))
 		.catch(next))
@@ -14,7 +14,19 @@ module.exports = require('express').Router()
 		User.create(req.body)
 		.then(user => res.status(201).json(user))
 		.catch(next))
-	.get('/:id', mustBeLoggedIn, (req, res, next) => 
+	.get('/:id', mustBeLoggedIn, (req, res, next) =>
 		User.findById(req.params.id)
 		.then(user => res.json(user))
+		.catch(next))
+	.post('/:id', (req, res, next) =>
+		User.findById(req.params.id)
+		.then(user => {
+			let newPoints= user.points + req.body.addPoints
+
+			console.log("add", req.body.addPoints)
+			return user.update({points: newPoints})
+		}).then(user => {
+			console.log("before send", user);
+			res.json(user)
+		})
 		.catch(next))

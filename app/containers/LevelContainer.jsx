@@ -5,6 +5,7 @@ import Level from 'APP/app/components/Level';
 import Annyang from 'APP/public/js/annyang.js';
 import LevelList from 'APP/public/js/levellist.js';
 import { selectLevel, toggleCompleted } from 'APP/app/reducers/level';
+import { addPoints } from 'APP/app/reducers/auth';
 
 export  class LevelContainer extends Component {
 
@@ -30,7 +31,10 @@ export  class LevelContainer extends Component {
       console.log("spell:", spell)
       console.log("you said:", phrases[0]);
 
-      if(phrases[0].toLowerCase().includes(spell) || phrases.indexOf(spell)>-1){ this.props.toggleCompleted(true) }
+      if(phrases[0].toLowerCase().includes(spell) || phrases.indexOf(spell)>-1){
+        this.props.toggleCompleted(true)
+        if(this.props.user){this.props.addPoints(this.props.user, 10);}
+      }
       console.log("completed", this.props.level.completed);
     }.bind(thisLevel));
   }
@@ -69,6 +73,9 @@ export const mapDispatchToProps = dispatch=>{
      },
      selectLevel: function(level){
        dispatch(selectLevel(level));
+     },
+     addPoints: function(user, points){
+       dispatch(addPoints(user, points));
      }
    };
 }
